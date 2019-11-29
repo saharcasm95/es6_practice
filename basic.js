@@ -13,6 +13,11 @@
         global[varName] = "";
     }
 
+    function getFileExtension(file) {
+        return file.split('.').pop();
+    }
+
+
 
 })();
 
