@@ -31,15 +31,13 @@
     function swapCharactersOnPositions(position1, position2, testString){
 
         if (testString[position1] === testString[position2])
-            return;
+            return testString;
 
         if(position1 < testString.length && position2 < testString.length){
             let temp1 = testString.slice(0, position1);
             let temp2 = testString.slice(position1 + 1, position2);
             let temp3 = testString.slice(position2 + 1);
-
             return temp1 + testString[position2] + temp2 + testString[position1] + temp3;
-
         }
 
         return "Error: Invalid Position(s) Passed."
@@ -128,9 +126,22 @@
         return String.fromCharCode(charCode);
     }
 
+    function getMiddleCharacters(n, testString){// in odd
+        let midPoint = (testString.length - 1) / 2;
+        let space = (n - 1) / 2;
+        return testString.slice(midPoint - space, midPoint + space + 1);
+    }
 
+    function getSumFromString(testString){
+        let digits = testString.match(new RegExp( /\d/, 'g'));
+        return digits.reduce((total, num) => parseInt(total) + parseInt(num));
+    }
 
-    let response =  getNextAlphabet("testing", 2);
+    function isCorrect(testString){
+        return !!testString.match(new RegExp(/^[A-Z].*\.$/, 'g'));
+    }
+
+    let response =  isCorrect("Aksdfgbdf");
     console.log(response);
 
 })();

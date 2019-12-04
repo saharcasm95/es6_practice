@@ -5,10 +5,15 @@
         let n = digits.length - 1;
         return parseInt(digits[n])
     }
+    function areDigitsSame(num){
+        let nString = num.toString();
+        let pattern = new RegExp(/^(\d)\1*$/);
+        return !!nString.match(pattern);
+    }
 
 
-    let response = getLastDigit(123234);
+    let response = areDigitsSame(777);
     console.log(response)
 
-})();
+})();/
 
